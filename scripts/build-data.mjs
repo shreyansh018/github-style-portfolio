@@ -69,10 +69,10 @@ function syncIdentity() {
   let sIdx = read("site/index.html");
   sIdx = sIdx
     .replace(/<title>[^<]*<\/title>/, `<title>${domain}</title>`)
-    .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${domain} — work, projects, talks and themes, opened in an editor.">`)
+    .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${domain} — work, projects and themes, opened in an editor.">`)
     .replace(/(<a class="brand"[^>]*>.*?<span>)[^<]*(<\/span><\/a>)/s, `$1${domain}$2`)
     .replace(/<a href="https:\/\/github\.com\/[^"]*" rel="me">github<\/a>/, `<a href="${ghUrl}" rel="me">github</a>`)
-    .replace(/<h1 class="sr-only">[^<]*<\/h1>/, `<h1 class="sr-only">${domain} — work, projects, talks and themes.</h1>`)
+    .replace(/<h1 class="sr-only">[^<]*<\/h1>/, `<h1 class="sr-only">${domain} — work, projects and themes.</h1>`)
     .replace(/<span class="bar-title">[^<]*<\/span>/, `<span class="bar-title">${barTitle}</span>`);
   write("site/index.html", sIdx);
 
@@ -346,7 +346,6 @@ write("site/content.json", {
   themeStats: {},
   themeThumbs,
   work: CONFIG.work || [],
-  talks: CONFIG.talks || [],
   links: CONFIG.links || [],
   more: MORE,
 });

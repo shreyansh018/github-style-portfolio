@@ -299,19 +299,6 @@ function paintTile(kind, { colors, palettes, stack, wordmark }) {
       g.fillRect(8, 8 + y * (h - 24), (w - 16) * len, 2.4);
     });
     g.globalAlpha = 1;
-  } else if (kind === "talks") {
-    g.strokeStyle = `rgba(${colors.ink},0.5)`;
-    g.lineWidth = 0.8;
-    g.beginPath();
-    g.arc(w / 2, (h - 8) / 2 + 2, h * 0.34, 0, Math.PI * 2);
-    g.moveTo(w / 2 - h * 0.34, (h - 8) / 2 + 2);
-    g.lineTo(w / 2 + h * 0.34, (h - 8) / 2 + 2);
-    g.stroke();
-    g.beginPath();
-    g.ellipse(w / 2, (h - 8) / 2 + 2, h * 0.14, h * 0.34, 0, 0, Math.PI * 2);
-    g.stroke();
-    g.fillStyle = `rgb(${colors.accent})`;
-    [[0.2, -0.1], [-0.12, 0.12], [0.05, -0.22], [-0.24, -0.04]].forEach(([dx, dy]) => g.fillRect(w / 2 + dx * h - 1.5, (h - 8) / 2 + 2 + dy * h - 1.5, 3, 3));
   } else if (kind === "themes") {
     const list = palettes.length ? palettes : [{ bg: colors.paper, accent: colors.paper, fg: colors.paper }];
     const sw = w / list.length;

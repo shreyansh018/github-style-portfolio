@@ -35,7 +35,7 @@ const load = (url) =>
     if (!response.ok) throw new Error(`${url}: ${response.status}`);
     return response.json();
   });
-const V = "?v=20261126d";
+const V = "?v=20261126e";
 const [content, themeData, snapshot, stack, months] = await Promise.all([load(`content.json${V}`), load(`../themes.json${V}`), load(`../github-snapshot.json${V}`), load(`stack.json${V}`).catch(() => null), load(`months.json${V}`).catch(() => null)]);
 const themes = themeData.themes;
 const palettes = new Map(content.palettes.map((theme) => [key(theme.name), theme]));
@@ -148,7 +148,6 @@ const entries = [
   { id: "about", label: "whoami", kind: "about", tile: "about" },
   ...projectEntries.filter((entry) => !entry.parent),
   { id: "work", label: "work/", kind: "work", tile: "work" },
-  { id: "talks", label: "talks/", kind: "talks", tile: "talks" },
   ...(childrenOf("more").length ? [{ id: "more", label: "more/", kind: "more" }] : []),
   ...(stack ? [{ id: "stack", label: "stack/", kind: "stack", tile: "stack" }] : []),
   { id: "themes", label: "themes/", kind: "themes", tile: "themes" },
@@ -454,8 +453,8 @@ function triptych(files) {
 const WHEN_W = 24;
 function workSpec() {
   const list = content.work || [];
-  const jobs = list.filter((item) => item.kind !== "talk");
-  const out = list.filter((item) => item.kind !== "talk").flatMap((item) => [
+  const jobs = list;
+  const out = list.flatMap((item) => [
     { segments: [[item.when.padEnd(WHEN_W), "t-dim"], item.url ? [item.title, "", item.url] : [item.title, "t-key"], ...(item.org ? [["  @ " + item.org, "t-dim"]] : []), ...(item.where ? [["  · " + item.where, "t-dim"]] : [])] },
     { segments: [[" ".repeat(WHEN_W)], [item.desc || ""]], className: "t-hang" },
   ]);
@@ -465,40 +464,6 @@ function workSpec() {
     blocks: [
       { cmd: "fetch work/", out: [fact("entries", jobs.length), fact("programs", jobs.filter((item) => /summer of|google summer/i.test(item.title)).length)] },
       { cmd: "git log --format='%ad  %s' work/", out },
-    ],
-  };
-}
-
-function talksSpec() {
-  const list = content.talks || [];
-  const out = list.flatMap((talk) => [
-    { segments: [[talk.when.padEnd(10), "t-dim"], talk.url ? [talk.name, "", talk.url] : [talk.name, "t-key"], ["  · " + talk.place, "t-dim"]] },
-    { segments: [[" ".repeat(10)], [talk.desc || ""]], className: "t-hang" },
-  ]);
-  return {
-    cwd: "~/talks",
-    branch: null,
-    blocks: [
-      { cmd: "fetch talks/", out: [fact("talks", list.length), { segments: [[pad("places"), "t-key"], [[...new Set(list.map((talk) => talk.place.split(", ").pop()))].join(", ")]] }] },
-      { cmd: "git log --format='%ad  %s' talks/", out },
-      {
-        cmd: "ls photos/",
-        mount(host) {
-          const cards = list.map((talk) => ({ repo: talk.name, slug: talk.name, name: talk.name, description: talk.place, included: false, palette: [], note: talk.when }));
-          const archive = createArchive(host, cards, {
-            stats: {},
-            thumbs: Object.fromEntries(list.map((talk) => [talk.name, talk.photo])),
-            current: "",
-            viewport: buffer,
-            lightbox,
-            onPick(card) {
-              const talk = list.find((item) => item.name === card.slug);
-              if (talk?.url) window.open(talk.url, "_blank", "noopener");
-            },
-          });
-          return archive.destroy;
-        },
-      },
     ],
   };
 }
@@ -540,7 +505,6 @@ function moreSpec() {
 
 function textOf(entry) {
   if (entry.kind === "work") return (content.work || []).map((item) => `${item.title} ${item.org || ""} ${item.desc || ""}`).join(" ");
-  if (entry.kind === "talks") return (content.talks || []).map((item) => `${item.name} ${item.place} ${item.desc || ""}`).join(" ");
   if (entry.kind === "more") return childrenOf("more").map((child) => `${child.data.repo} ${child.data.description || ""}`).join(" ");
   if (entry.kind === "project") return [entry.data.repo, entry.data.description, entry.data.language, entry.data.lines.join(" ")].join(" ");
   if (entry.kind === "about") return content.about.lines.join(" ");
@@ -554,8 +518,7 @@ function barView(entry) {
     return [["STARS", fmt(p.stars)], ["FORKS", fmt(p.forks ?? 0)], ["WATCH", fmt(p.watchers ?? 0)]];
   }
   if (entry.kind === "themes") return [["THEMES", String(themes.length)], ["BUILT-IN", String(themes.filter((theme) => theme.included).length)]];
-  if (entry.kind === "work") return [["ROLES", String((content.work || []).filter((item) => item.kind !== "talk").length)], ["SINCE", "2021"], ["NOW", "ALBY"]];
-  if (entry.kind === "talks") return [["TALKS", String((content.talks || []).length)], ["COUNTRIES", "4"], ["SINCE", "2022"]];
+  if (entry.kind === "work") return [["ROLES", String((content.work || []).length)], ["SINCE", "2021"], ["NOW", "ALBY"]];
   if (entry.kind === "more") return [["PROJECTS", String(childrenOf("more").length)]];
   if (entry.kind === "stack") return [["LANGS", String(stack.languages.length)], ["TOOLS", String(stack.tools.length)], ["AI", String(stack.ai?.length ?? 0)]];
   return [["REPOS", fmt(snapshot.stars.repositoryCount)], ["STARS", fmt(snapshot.stars.total)], ["FOLLOWERS", fmt(snapshot.followers)]];
@@ -597,11 +560,6 @@ function open(entry) {
     winbar.textContent = orgs.length ? `work/ — ${orgs.join(" · ")}` : "work/";
     tabFile.textContent = "/work/";
     terminal.show(workSpec());
-    cleanup = () => terminal.destroy();
-  } else if (entry.kind === "talks") {
-    winbar.textContent = `talks/ — ${(content.talks || []).length} talks`;
-    tabFile.textContent = "/talks/";
-    terminal.show(talksSpec());
     cleanup = () => terminal.destroy();
   } else if (entry.kind === "more") {
     winbar.textContent = `more/ — ${childrenOf("more").length} projects`;
@@ -821,7 +779,7 @@ document.addEventListener("keydown", (event) => {
     wheel.commitNow();
     const { item } = wheel.current();
     if (openEntry?.parent === item.entry.id) open(item.entry);
-    if (openEntry?.kind === "more" || openEntry?.kind === "talks") (buffer.querySelector(".arc-card") || buffer).focus({ preventScroll: true });
+    if (openEntry?.kind === "more") (buffer.querySelector(".arc-card") || buffer).focus({ preventScroll: true });
     else if (openEntry?.kind !== "themes") buffer.focus({ preventScroll: true });
     closeDrawer();
   } else if (event.key === "Escape") closeDrawer();
