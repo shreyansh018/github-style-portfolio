@@ -79,7 +79,9 @@
       "long": "Architected a full-stack interview preparation platform with Groq-hosted LLMs via LangChain for PDF-based resume analysis, ATS-style feedback, personalized interview questions and learning roadmaps. Stateful LangGraph workflows handle conditional routing for interview generation, answer evaluation and report generation, while Firebase Google Auth, MongoDB and Redis handle identity, storage and caching.",
       "githubRepo": "shreyansh018/ShreyanshPrepAI",
       "shots": [
-        "shots/shreyanshprepai.png"
+        "shots/shreyanshprepai-1.png",
+        "shots/shreyanshprepai-2.png",
+        "shots/shreyanshprepai-3.png"
       ],
       "stack": [
         "React",

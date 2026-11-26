@@ -1,6 +1,6 @@
 {
  "owner": "shreyansh018",
- "fetchedAt": "2026-11-26T17:12:48.116Z",
+ "fetchedAt": "2026-11-26T17:18:38.382Z",
  "about": {
   "repo": "shreyansh018",
   "lines": [
@@ -49,9 +49,21 @@
    ],
    "images": [
     {
-     "file": "shots/shreyanshprepai.png",
-     "source": "shots/shreyanshprepai.png",
+     "file": "shots/shreyanshprepai-1.png",
+     "source": "shots/shreyanshprepai-1.png",
      "alt": "ShreyanshPrepAI screenshot 1",
+     "xray": false
+    },
+    {
+     "file": "shots/shreyanshprepai-2.png",
+     "source": "shots/shreyanshprepai-2.png",
+     "alt": "ShreyanshPrepAI screenshot 2",
+     "xray": false
+    },
+    {
+     "file": "shots/shreyanshprepai-3.png",
+     "source": "shots/shreyanshprepai-3.png",
+     "alt": "ShreyanshPrepAI screenshot 3",
      "xray": false
     }
    ],
@@ -70,6 +82,10 @@
     "Redis handle identity, storage and caching.",
     "",
     "Built with React · Node.js · Express.js · MongoDB · Redis · LangChain · LangGraph · Groq API · Firebase · Docker",
+    "",
+    "\u0001IMG1\u0001",
+    "",
+    "\u0001IMG2\u0001",
     "",
     "[Visit](https://github.com/shreyansh018/ShreyanshPrepAI)"
    ]
