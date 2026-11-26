@@ -36,7 +36,7 @@ const NOTE_TEXT = "// software developer · Python, AI & React";
 const touchMode = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
 // Bump when face.webm / face.mp4 / face-track.json / wall.json change. These files are fetched by script, and browsers can keep old copies of
 // script-initiated fetches even through a hard refresh; a new ?v= makes the old cache entries unreachable.
-const ASSET_V = "20261126b";
+const ASSET_V = "20261126c";
 const FACE_FONT_PX = 5.5;
 const EM_TOP = 1025 / 1300;
 const GLYPH_Y = 1 + FONT_PX * EM_TOP;
@@ -4186,6 +4186,8 @@ onWidthResize(() => {
 });
 
 function markSeen() {
+  const HAS_SEEN_API = false; // static deployment has no /api/seen backend
+  if (!HAS_SEEN_API) return;
   let timer = 0;
   const arm = () => {
     clearTimeout(timer);
