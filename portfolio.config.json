@@ -1,198 +1,276 @@
 {
   "identity": {
-    "name": "Alex Rivera",
-    "barTitle": "ALEX RIVERA",
-    "terminalUser": "alex",
-    "domain": "alexrivera.dev",
-    "tagline": "systems, developer tools, open source.",
-    "github": "alexrivera",
-    "storagePrefix": "portfolio"
+    "name": "Shreyansh Rajput",
+    "barTitle": "SHREYANSH RAJPUT",
+    "terminalUser": "shreyansh",
+    "domain": "shreyansh018.github.io/my-portfolio",
+    "tagline": "software developer · Python, AI & React",
+    "github": "shreyansh018",
+    "storagePrefix": "shreyansh"
   },
   "about": {
-    "bio": "Systems and full-stack engineer building developer tools, distributed storage engines, and open-source software.",
-    "extra": "San Francisco · Open Source"
+    "bio": "Software developer building scalable Python/Django backends and React interfaces, with a focus on AI/LLM products, agentic RAG pipelines and fast, accessible web experiences.",
+    "extra": "Chennai, India · Python · AI · React"
   },
   "links": [
     {
       "label": "Email",
-      "url": "mailto:hello@alexrivera.dev"
+      "url": "mailto:shreyanshrajput018@gmail.com"
     },
     {
       "label": "GitHub",
-      "url": "https://github.com/alexrivera"
+      "url": "https://github.com/shreyansh018"
     },
     {
       "label": "LinkedIn",
-      "url": "https://www.linkedin.com/in/alexrivera"
+      "url": "https://www.linkedin.com/in/shreyansh018"
     },
     {
-      "label": "X / Twitter",
-      "url": "https://x.com/alexrivera"
+      "label": "Phone",
+      "url": "tel:+919506714526"
     },
     {
-      "label": "Blog",
-      "url": "https://alexrivera.dev/blog"
+      "label": "Resume (PDF)",
+      "url": "Shreyansh-Rajput-CV.pdf"
     }
   ],
   "work": [
     {
-      "when": "06/2024 – present",
-      "title": "Senior Systems Engineer",
-      "org": "CloudScale",
-      "where": "San Francisco · Hybrid",
-      "desc": "Leading the distributed query execution engine and low-latency telemetry pipeline in Rust and Go.",
-      "url": "https://example.com/cloudscale"
+      "when": "06/2023 – 12/2024",
+      "title": "Associate Software Engineer",
+      "org": "Forbes Technologies India Pvt Ltd",
+      "where": "Chennai, India · Full-time",
+      "desc": "Built scalable Python/Django backends and reusable React design systems for a platform with ~24M monthly users; cut API response time from ~200ms to ~25ms and ran 50+ Optimizely experiments. Delivered features with product, design and QA teams across a codebase shared by 30+ developers."
     },
     {
-      "when": "03/2022 – 05/2024",
-      "title": "Software Engineer",
-      "org": "DevFlow",
-      "where": "Remote",
-      "desc": "Built CLI developer tooling, local sandbox runtimes, and real-time build log streaming for 50k+ engineers.",
-      "url": "https://example.com/devflow"
+      "when": "12/2022 – 06/2023",
+      "title": "Front End Developer Intern",
+      "org": "Forbes Technologies India Pvt Ltd",
+      "where": "Chennai, India · Internship",
+      "desc": "Shipped 50+ React features and pages for the Forbes Editorial Platform, refactored UI into reusable components, built responsive layouts and fixed 100+ defects through testing and code review."
     },
     {
-      "when": "01/2021 – present",
-      "title": "Core Maintainer",
-      "org": "OpenTrace",
-      "where": "Open source",
-      "desc": "Maintaining open-source distributed tracing SDKs and terminal visualization tools.",
-      "url": "https://github.com/alexrivera"
+      "when": "07/2026 – present",
+      "title": "PGDM (Analytics)",
+      "org": "SOIL School of Business Design",
+      "where": "Gurgaon, Delhi-NCR · Education",
+      "desc": "Post Graduate Diploma in Management with a focus on analytics."
     },
     {
-      "when": "05/2020 – 08/2020",
-      "title": "Open Source Fellow",
-      "org": "SystemsLab",
-      "where": "Remote",
-      "desc": "Implemented zero-copy serialization primitives and benchmarked memory-mapped storage formats."
+      "when": "05/2019 – 05/2023",
+      "title": "B.Tech, Computer Science and Engineering",
+      "org": "Vellore Institute of Technology University",
+      "where": "Bhopal, India · Education",
+      "desc": "Bachelor of Technology in Computer Science and Engineering · CGPA 7.45/10."
+    },
+    {
+      "when": "Credential",
+      "title": "Problem Solving · Azure Fundamentals (AZ-900)",
+      "org": "Certifications",
+      "where": "Certified",
+      "desc": "Problem Solving certification and Microsoft Certified: Azure Fundamentals (AZ-900)."
     }
   ],
   "projects": [
     {
-      "name": "PulseDB",
-      "tag": "Database · Rust",
-      "desc": "An embedded time-series storage engine written in Rust with sub-millisecond range queries and vectorized compression.",
-      "long": "PulseDB is a lightweight embedded time-series database designed for edge telemetry and local developer metrics. It features gorilla-style delta encoding, memory-mapped segment files, and a zero-allocation query iterator.",
-      "githubRepo": "",
-      "shots": [
-        "shots/project-1.svg"
-      ],
-      "stack": [
-        "Rust",
-        "SQLite",
-        "WebAssembly",
-        "TypeScript"
-      ],
-      "url": "https://github.com/alexrivera/pulsedb"
-    },
-    {
-      "name": "TermFlow",
-      "tag": "CLI · Go",
-      "desc": "A fast terminal multiplexer and task runner with live dependency graphs and structured log filtering.",
-      "long": "TermFlow orchestrates local microservices and build pipelines from a single declarative manifest. It streams colorized output, detects port conflicts automatically, and exports execution timelines.",
-      "githubRepo": "",
-      "shots": [
-        "shots/project-2.svg"
-      ],
-      "stack": [
-        "Go",
-        "Terminal",
-        "Docker",
-        "Linux"
-      ],
-      "url": "https://github.com/alexrivera/termflow"
-    },
-    {
-      "name": "TraceKit",
-      "tag": "Observability · TypeScript",
-      "desc": "Zero-overhead OpenTelemetry trace viewer that runs entirely in the browser from JSONL trace dumps.",
-      "long": "TraceKit lets engineers inspect distributed traces locally without spinning up heavy observability backends. Drop a trace file into the browser and inspect flamegraphs, critical paths, and span attributes.",
-      "githubRepo": "",
+      "name": "ShreyanshPrepAI",
+      "tag": "Full-stack · AI",
+      "desc": "AI-powered interview preparation platform with a microservices backend for auth, resume, interview, billing and roadmap services.",
+      "long": "Architected a full-stack interview preparation platform with Groq-hosted LLMs via LangChain for PDF-based resume analysis, ATS-style feedback, personalized interview questions and learning roadmaps. Stateful LangGraph workflows handle conditional routing for interview generation, answer evaluation and report generation, while Firebase Google Auth, MongoDB and Redis handle identity, storage and caching.",
+      "githubRepo": "shreyansh018/ShreyanshPrepAI",
       "shots": [],
       "stack": [
-        "TypeScript",
         "React",
-        "Canvas",
-        "OpenTelemetry"
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Redis",
+        "LangChain",
+        "LangGraph",
+        "Groq API",
+        "Firebase",
+        "Docker"
       ],
-      "url": "https://github.com/alexrivera/tracekit"
+      "url": "https://github.com/shreyansh018/ShreyanshPrepAI"
     },
     {
-      "name": "SchemaSync",
-      "tag": "Tooling · Python",
-      "desc": "Automated database migration validator that catches breaking schema changes and missing indexes in CI.",
-      "long": "SchemaSync parses SQL and ORM migrations in pull requests, simulates lock contention against production table statistics, and posts actionable safety reports.",
-      "githubRepo": "",
+      "name": "Enterprise Agentic RAG",
+      "tag": "AI · Enterprise Search",
+      "desc": "Agentic RAG pipeline with multi-step reasoning, history-aware query planning and conversational memory.",
+      "long": "Built an agentic RAG pipeline with LangGraph for multi-step reasoning, conversational routing and persistent conversation memory. Document ingestion and semantic retrieval use Qdrant Cloud and Gemini embeddings (3072 dimensions) with FlashRank reranking. NVIDIA NeMo Guardrails filter off-topic queries, jailbreaks and prompt injection, while Portkey Gateway provides centralized LLM orchestration with primary and fallback Groq configurations. Includes a FastAPI backend, Streamlit interface and RAGAS/LangSmith evaluation workflows.",
+      "githubRepo": "shreyansh018/Enterprise-RAG-Application",
       "shots": [],
       "stack": [
         "Python",
-        "PostgreSQL",
-        "GitHub Actions"
+        "FastAPI",
+        "LangChain",
+        "LangGraph",
+        "Qdrant",
+        "Groq API",
+        "NeMo Guardrails",
+        "LangSmith",
+        "RAGAS",
+        "Streamlit"
       ],
-      "url": "https://github.com/alexrivera/schemasync"
+      "url": "https://github.com/shreyansh018/Enterprise-RAG-Application"
     },
     {
-      "name": "MiniKV",
-      "tag": "Storage · C",
-      "desc": "A minimal Raft-backed key-value store built to explore consensus algorithms and deterministic simulation testing.",
-      "long": "MiniKV implements leader election, log replication, and snapshot compaction in under 2,000 lines of C with a deterministic network simulator.",
-      "githubRepo": "",
+      "name": "FreshersJob Radar",
+      "tag": "Python · Career Tech",
+      "desc": "Python application that aggregates and surfaces fresher job opportunities so candidates find relevant openings faster.",
+      "long": "An automation-focused Python application that collects and surfaces entry-level job opportunities in one place, helping candidates discover relevant openings without manually searching multiple sources.",
+      "githubRepo": "shreyansh018/freshersjob-radar",
+      "shots": [],
+      "stack": [
+        "Python",
+        "Automation"
+      ],
+      "url": "https://github.com/shreyansh018/freshersjob-radar"
+    },
+    {
+      "name": "Interactive 3D Portfolio",
+      "tag": "Creative Web · TypeScript",
+      "desc": "Cinematic portfolio with a WebGL project constellation, scroll-directed storytelling and a keyboard-accessible contact flow.",
+      "long": "A cinematic, interactive portfolio built with Three.js, GSAP, TypeScript and Vite. Custom GLSL shaders, particles and section-aware lighting create the atmosphere, while scroll-driven transitions connect the DOM, camera and shaders. Includes responsive rendering, reduced-motion support, structured data and a contact flow.",
+      "githubRepo": "shreyansh018/my-portfolio",
+      "shots": [
+        "shots/3d-portfolio.png"
+      ],
+      "stack": [
+        "TypeScript",
+        "Vite",
+        "Three.js",
+        "WebGL",
+        "GLSL",
+        "GSAP",
+        "SCSS"
+      ],
+      "url": "https://github.com/shreyansh018/my-portfolio"
+    },
+    {
+      "name": "Zoom Clone",
+      "tag": "Full-stack · Real-time",
+      "desc": "Real-time video conferencing clone with authentication, meetings and live video rooms.",
+      "long": "A TypeScript-based real-time communication app featuring authentication, meeting rooms and live video interactions.",
+      "githubRepo": "shreyansh018/zoom_clone",
       "more": true,
       "shots": [],
       "stack": [
-        "C",
-        "Networking",
-        "Raft"
+        "TypeScript",
+        "React"
       ],
-      "url": "https://github.com/alexrivera/minikv"
+      "url": "https://github.com/shreyansh018/zoom_clone"
     },
     {
-      "name": "Dotfiles",
-      "tag": "Config · Neovim",
-      "desc": "Modular Neovim, Fish shell, and tmux configuration tuned for fast keyboard-driven development.",
-      "long": "Cross-platform terminal environment with custom Lua plugins, minimal LSP setup, and synchronized color palettes.",
-      "githubRepo": "",
+      "name": "Storage Web Application",
+      "tag": "Web App · TypeScript",
+      "desc": "Storage management web application with a modern frontend and cloud-ready architecture.",
+      "long": "A TypeScript storage management application focused on clean frontend architecture and responsive interaction patterns.",
+      "githubRepo": "shreyansh018/storage-web-application",
       "more": true,
       "shots": [],
       "stack": [
-        "Lua",
-        "Neovim",
-        "Shell"
+        "TypeScript",
+        "React"
       ],
-      "url": "https://github.com/alexrivera/dotfiles"
-    }
-  ],
-  "talks": [
-    {
-      "name": "Systems Conf",
-      "place": "San Francisco, USA",
-      "when": "Oct 2025",
-      "lat": 37.77,
-      "lon": -122.41,
-      "desc": "Building deterministic simulation harnesses for storage engines — catching race conditions before production.",
-      "url": "https://example.com/talk-1",
-      "photos": []
+      "url": "https://github.com/shreyansh018/storage-web-application"
     },
     {
-      "name": "Open Source Summit",
-      "place": "London, UK",
-      "when": "May 2024",
-      "lat": 51.51,
-      "lon": -0.13,
-      "desc": "Designing zero-dependency developer tools that run fast on every platform.",
-      "url": "https://example.com/talk-2",
-      "photos": []
+      "name": "Ecommerce Sales Dashboard",
+      "tag": "Data Visualization",
+      "desc": "Interactive dashboard for visualizing ecommerce sales metrics and trends.",
+      "long": "An HTML-based dashboard that presents ecommerce sales metrics and trends through interactive visualizations.",
+      "githubRepo": "shreyansh018/Ecommerce-Sales-Dashboard",
+      "more": true,
+      "shots": [],
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "url": "https://github.com/shreyansh018/Ecommerce-Sales-Dashboard"
+    },
+    {
+      "name": "Sweety Glucose Tracker",
+      "tag": "JavaScript · Health Tech",
+      "desc": "JavaScript application for tracking glucose levels and monitoring health metrics over time.",
+      "long": "A small health-tracking application that records glucose readings and presents them over time for easier monitoring.",
+      "githubRepo": "shreyansh018/Sweety-Glucose-Tracker-App",
+      "more": true,
+      "shots": [],
+      "stack": [
+        "JavaScript"
+      ],
+      "url": "https://github.com/shreyansh018/Sweety-Glucose-Tracker-App"
+    },
+    {
+      "name": "Website Review",
+      "tag": "Python · Web Analysis",
+      "desc": "Python tool for reviewing and analyzing websites with automated insights and feedback.",
+      "long": "A Python utility that reviews websites and produces automated insights and feedback for improvement.",
+      "githubRepo": "shreyansh018/website_review",
+      "more": true,
+      "shots": [],
+      "stack": [
+        "Python"
+      ],
+      "url": "https://github.com/shreyansh018/website_review"
     }
   ],
+  "talks": [],
   "wallRepos": [],
   "siteStack": [
     {
-      "name": "Vanilla JS",
-      "via": "zero-build frontend"
+      "name": "Python",
+      "via": "backend, automation and AI pipelines"
     },
     {
-      "name": "Canvas 2D",
-      "via": "intro + contribution ink"
+      "name": "Django",
+      "via": "scalable backend services"
+    },
+    {
+      "name": "FastAPI",
+      "via": "RAG service APIs"
+    },
+    {
+      "name": "React",
+      "via": "component libraries and product UIs"
+    },
+    {
+      "name": "Node.js",
+      "via": "microservices tooling"
+    },
+    {
+      "name": "TypeScript",
+      "via": "interactive frontend work"
+    },
+    {
+      "name": "LangChain",
+      "via": "LLM application orchestration"
+    },
+    {
+      "name": "LangGraph",
+      "via": "stateful agentic workflows"
+    },
+    {
+      "name": "MongoDB",
+      "via": "primary document storage"
+    },
+    {
+      "name": "Redis",
+      "via": "caching and application data"
+    },
+    {
+      "name": "Docker",
+      "via": "containerized services"
+    },
+    {
+      "name": "Git",
+      "via": "daily collaboration and code review"
+    },
+    {
+      "name": "Power BI",
+      "via": "analytics and reporting"
     }
   ]
 }

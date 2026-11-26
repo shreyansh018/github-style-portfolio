@@ -1,58 +1,392 @@
-pub struct Segment {
-    start_ts: u64,
-    end_ts: u64,
-    points: Vec<Sample>,
-}
-impl Segment {
-    pub fn query_range(&self, from: u64, to: u64) -> &[Sample] {
-        let lo = self.points.partition_point(|s| s.ts < from);
-        let hi = self.points.partition_point(|s| s.ts <= to);
-        &self.points[lo..hi]
-    }
-}
-package runner
-func TopoSort(tasks map[string][]string) ([]string, error) {
-    visited := make(map[string]int)
-    var order []string
-    var visit func(string) error
-    visit = func(id string) error {
-        if visited[id] == 1 { return ErrCycle }
-        if visited[id] == 2 { return nil }
-        visited[id] = 1
-        for _, dep := range tasks[id] {
-            if err := visit(dep); err != nil { return err }
+package atm.system;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+public class BalEnquiry extends JFrame implements ActionListener {
+    JButton back;
+    String pinNumber;
+    BalEnquiry(String pinNumber){
+        this.pinNumber = pinNumber;
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/atm.jpg"));
+        Image i2 = i1.getImage().getScaledInstance(900, 900, Image.SCALE_DEFAULT);
+        ImageIcon i3 = new ImageIcon(i2);
+        JLabel image = new JLabel(i3);
+        image.setBounds(0, 0, 900, 900);
+        add(image);
+        back = new JButton("Back");
+        back.setBounds(355, 520, 150, 30);
+        back.addActionListener(this);
+        image.add(back);
+        //ab sabse pehle balance ko display karwana padega
+        //bank table ke andar jitne bhi fields h unko nikalna padega, jo kaam humne Fast Cash ke case m kiya tha.
+        Con c = new Con();  //**NOTE** -> is code ko humne constructor ke andar daala h, ese hum actionPerformed() ke andar daalte the
+        int balance = 0;    // but me chahat hu ki jese hi mera frame khule, to frame ke khulte hi mera balance display ho jaae.
+                            //to esa kuch kaam karna h bina button ke click ke to constructor ke andar code daalna padhta h.
+        try{
+            ResultSet rs = c.s.executeQuery("select * from bank where pin = '"+pinNumber+"' "); //yaha par mene wo sabhi values utha li jaha pin number is se match hota h.
+            while(rs.next()){ //rs result set he uske andar hmari bank table ka data store karwaya h upar, to phr ab next() ka mtlb check krega wo data h agar h to aage operations karo.
+                if(rs.getString("type").equals("Deposit")){
+                balance += Integer.parseInt(rs.getString("amount"));
+        } else {
+                balance -= Integer.parseInt(rs.getString("amount"));
+                }
+            }
+        } catch(Exception e){
+                System.out.println(e);
         }
-        visited[id] = 2
-        order = append(order, id)
-        return nil
+        //balance=0 ko try and catch ke bahar likha taki uska scope try and catch ke bahar mil jae.
+        JLabel text = new JLabel("Your Current Account balance is Rs " + balance);
+        text.setForeground(Color.white);
+        text.setBounds(170, 300, 400, 30);
+        image.add(text);
+        setSize(900, 900);
+        setLocation(300, 0);
+        setUndecorated(true);
+        setVisible(true);
     }
-    for id := range tasks { if err := visit(id); err != nil { return nil, err } }
-    return order, nil
+    public void actionPerformed(ActionEvent ae){
+        setVisible(false);
+        new Transactions(pinNumber).setVisible(true);
+    }
+    public static void main(String[] args){
+        new BalEnquiry("");
+    }
 }
-export interface SpanNode {
-  id: string;
-  name: string;
-  startUs: number;
-  durationUs: number;
-  children: SpanNode[];
+package atm.system;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class ChangePin extends JFrame implements ActionListener {
+    JButton change, back;
+    JPasswordField pin, repin;
+    String pinNumber;
+    ChangePin(String pinNumber){
+        this.pinNumber = pinNumber;
+        setLayout(null);
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/atm.jpg"));
+        Image i2 = i1.getImage().getScaledInstance(900, 900, Image.SCALE_DEFAULT);
+        ImageIcon i3 = new ImageIcon(i2);
+        JLabel image = new JLabel(i3);
+        image.setBounds(0, 0, 900, 900);
+        add(image);
+        JLabel text = new JLabel("CHANGE YOUR PIN");
+        text.setBounds(260, 280, 500, 35);
+        text.setFont(new Font("System", Font.BOLD, 16));
+        text.setForeground(Color.white);
+        image.add(text);
+        JLabel pintext = new JLabel("New PIN");
+        pintext.setBounds(165, 320, 180, 25);
+        pintext.setFont(new Font("System", Font.BOLD, 16));
+        pintext.setForeground(Color.white);
+        image.add(pintext);
+        pin = new JPasswordField();
+        pin.setFont(new Font("System", Font.BOLD, 25));
+        pin.setBounds(330, 320, 180, 25);
+        image.add(pin);
+        JLabel repintext = new JLabel("Re-Enter New PIN");
+        repintext.setBounds(165, 360, 180, 25);
+        repintext.setFont(new Font("System", Font.BOLD, 16));
+        repintext.setForeground(Color.white);
+        image.add(repintext);
+        repin = new JPasswordField();
+        repin.setFont(new Font("System", Font.BOLD, 25));
+        repin.setBounds(330, 360, 180, 25);
+        image.add(repin);
+        change = new JButton("Change");
+        change.setBounds(355, 485, 150, 30);
+        change.addActionListener(this);
+        image.add(change);
+        back = new JButton("Back");
+        back.setBounds(355, 520, 150, 30);
+        back.addActionListener(this);
+        image.add(back);
+        setSize(900, 900);
+        setLocation(300, 0);
+        setUndecorated(true);
+        setVisible(true);
+    }
+    public void actionPerformed(ActionEvent ae){
+        if(ae.getSource() == change){
+        try{
+            String newpin = pin.getText();
+            String rpin = repin.getText();
+            if(!newpin.equals(rpin)){
+/*-----------------------------------------------------------------------------------
+/*
+/* Init JS
+/*
+-----------------------------------------------------------------------------------*/
+ jQuery(document).ready(function($) {
+/*----------------------------------------------------*/
+/* FitText Settings
+------------------------------------------------------ */
+    setTimeout(function() {
+     $('h1.responsive-headline').fitText(1, { minFontSize: '40px', maxFontSize: '90px' });
+   }, 100);
+/*----------------------------------------------------*/
+/* Smooth Scrolling
+------------------------------------------------------ */
+   $('.smoothscroll').on('click',function (e) {
+      e.preventDefault();
+      var target = this.hash,
+      $target = $(target);
+      $('html, body').stop().animate({
+          'scrollTop': $target.offset().top
+      }, 800, 'swing', function () {
+          window.location.hash = target;
+      });
+  });
+/*----------------------------------------------------*/
+/* Highlight the current section in the navigation bar
+------------------------------------------------------*/
+  var sections = $("section");
+  var navigation_links = $("#nav-wrap a");
+  sections.waypoint({
+      handler: function(event, direction) {
+       var active_section;
+      active_section = $(this);
+      if (direction === "up") active_section = active_section.prev();
+      var active_link = $('#nav-wrap a[href="#' + active_section.attr("id") + '"]');
+         navigation_links.parent().removeClass("current");
+      active_link.parent().addClass("current");
+    },
+    offset: '35%'
+  });
+/*----------------------------------------------------*/
+/*  Make sure that #header-background-image height is
+/* equal to the browser height.
+------------------------------------------------------ */
+   $('header').css({ 'height': $(window).height() });
+   $(window).on('resize', function() {
+        $('header').css({ 'height': $(window).height() });
+        $('body').css({ 'width': $(window).width() })
+   });
+/*----------------------------------------------------*/
+/*  Fade In/Out Primary Navigation
+------------------------------------------------------*/
+   $(window).on('scroll', function() {
+/*global jQuery */
+/*!
+* FitText.js 1.1
+*
+* Copyright 2011, Dave Rupert http://daverupert.com
+* Released under the WTFPL license
+* http://sam.zoy.org/wtfpl/
+*
+* Date: Thu May 05 14:23:00 2011 -0600
+*/
+(function( $ ){
+  $.fn.fitText = function( kompressor, options ) {
+    // Setup options
+    var compressor = kompressor || 1,
+        settings = $.extend({
+          'minFontSize' : Number.NEGATIVE_INFINITY,
+          'maxFontSize' : Number.POSITIVE_INFINITY
+        }, options);
+    return this.each(function(){
+      // Store the object
+      var $this = $(this);
+      // Resizer() resizes items based on the object width divided by the compressor * 10
+      var resizer = function () {
+        $this.css('font-size', Math.max(Math.min($this.width() / (compressor*10), parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize)));
+      };
+      // Call once to set.
+      resizer();
+      // Call on resize. Opera debounces their resize by default.
+      $(window).on('resize.fittext orientationchange.fittext', resizer);
+    });
+  };
+})( jQuery );
+from langgraph.graph import StateGraph, END
+from langgraph.checkpoint.memory import MemorySaver
+from app.agents.state import AgentState
+from app.agents.nodes.planner import planner_node
+from app.agents.nodes.retriever import retrieve_node
+from app.agents.nodes.responder import generate_node
+# 1. Initialize the State Graph
+workflow = StateGraph(AgentState)
+# 2. Define the Nodes
+workflow.add_node("planner", planner_node)
+workflow.add_node("retriever", retrieve_node)
+workflow.add_node("responder", generate_node)
+# 3. Define the Edges & Routing Logic
+def route_planner(state: AgentState):
+    """
+    Routes the workflow based on the planner's decision.
+    """
+    if state["current_query"] == "CONVERSATIONAL":
+        return "responder"
+    return "retriever"
+workflow.set_entry_point("planner")
+# Conditional Edge: Planner -> Router -> (Retriever OR Responder)
+workflow.add_conditional_edges(
+    "planner",
+    route_planner,
+    {
+        "retriever": "retriever",
+        "responder": "responder"
+    }
+)
+workflow.add_edge("retriever", "responder")
+workflow.add_edge("responder", END)
+# --- MEMORY UPGRADE ---
+# MemorySaver allows the agent to remember conversations based on 'thread_id'
+checkpointer = MemorySaver()
+# 4. Compile the Graph with Memory
+rag_agent = workflow.compile(checkpointer=checkpointer)
+from app.agents.state import AgentState
+from app.gateway import get_langchain_llm
+import logfire
+# Portkey-backed LLM: fallback + cache + retry — same .invoke() interface as ChatGroq
+llm = get_langchain_llm(feature="planner")
+def planner_node(state: AgentState):
+    """
+    The Planner determines if a search is needed based on the ENTIRE conversation.
+    """
+    # Get the conversation history (excluding the latest message)
+    history = ""
+    for msg in state["messages"][:-1]:
+        role = "User" if msg["role"] == "user" else "Assistant"
+        history += f"{role}: {msg['content']}\n"
+    user_message = state["messages"][-1]["content"] if state["messages"] else ""
+    prompt = f"""
+    You are an intelligent Assistant Planner.
+    Analyze the conversation history and the latest user message.
+    CONVERSATION HISTORY:
+    {history}
+    LATEST MESSAGE:
+    "{user_message}"
+    Task:
+    1. If the latest message is a greeting (hi, hello) or a question that can be answered using ONLY the conversation history above (e.g., "what is my name"), respond with 'CONVERSATIONAL'.
+    2. If it is a technical question about Kubernetes, Intel, or Networking that requires fresh documentation, output a refined search query.
+    Output ONLY 'CONVERSATIONAL' or the search query.
+    """
+    with logfire.span("🧠 Planner Decision"):
+        decision = llm.invoke(prompt).content.strip()
+        logfire.info(f"Intent identified: {decision}")
+    if decision == "CONVERSATIONAL":
+        return {
+            "current_query": "CONVERSATIONAL",
+            "status": "Handling conversationally (using memory)...",
+            "plan": ["Intent: Conversational/Memory", "Retrieval: Skipped"]
+        }
+    return {
+        "current_query": decision,
+        "status": f"Technical research needed. Searching for: {decision}",
+        "plan": ["Intent: Technical", f"Search Term: {decision}"]
+    }
+import React from "react";
+function Header() {
+  return (
+    <header className="sticky top-0 z-50 grid grid-cols-3 py-1 px-5 md:px-5 bg-black">
+      {/*left*/}
+      <div className="relative flex items-center my-auto">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEM9p0isF0rLA_yr6y8GQ3GERGGbqtHz4jNw&usqp=CAU"
+          className="object-contain object-left cursor-pointer hidden md:inline-flex"
+          width="30px"
+        />
+      </div>
+      {/*Middel */}
+      <div className="flex items-center justify-center">
+        <h1 className="font-serif text-3xl cursor-pointer rounded-full text-white">
+          Forbes Advisor
+        </h1>
+      </div>
+      {/*Right*/}
+      <div className=" flex space-x-2 pl-20 justify-end">
+        <p className="text-right object-contain text-white cursor-pointer text-sm pt-2 hidden md:inline-flex">
+          AU
+        </p>
+        <img
+          src="data:image/png;base64,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"
+          className="object-contain object-right cursor-pointer hidden md:inline-flex"
+          width="20px"
+        />
+        <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAYFBMVEUAAAD////W1taVlZXq6upNTU0uLi61tbX6+vqYmJhiYmJKSkp/f3/Ozs719fUvLy9ra2uJiYnAwMDk5ORSUlIICAgPDw+hoaEmJiZfX189PT3b29vU1NQVFRUbGxuurq6CxvlhAAADO0lEQVR4nO3ba3PaMBCF4SjhnpALEAikbf7/vyxtZ9IBbEkra3ePPOf9rmWfsXPxjLm7Y4wxxhhjjDHGGGOMMcYYY4wxxhhjjDHGGGOMsVH18Xicee/Q22x3+hg2YbpZhD99PtXZqGpPP/7utphPi0f8XIfvnlcVd6vR6vn/cuvCGadw0UPVBYe2vFyu6AdpGgIucX69XMGdegNEIt4AC4gdQBxiB1BM7ASiEDuBIbxIZvQAMYg9wLAQEHuBCMQ+4JmY/Rs1AvQn9gPziVGgN/EhulseMQH0JcaBIetPfxLoSUwCM67iYxroR0wD08TZIkfoRMwBnom/okM+s4b4EPOA50e92JBV5hAPYi4whNiD3jp93IuYD4w+LuZPsSYKgCH0j8m/Sa2JImDkNn0VzTEkyoDhtXfQm2yQGVEIDG+9k4TX0IooBUau4Sl92IEoBoZd/7C8/2hsiXLgIjIt9vDlRJQDwzwy7kU+TplYAIw/QS3T502JJcCv+Mh7KGIJ8D41FImoAkQiKgFxiGpAFKIiEIOoCkQgKgP9iepAb2IJcCv9EE9iCXAi/xg/ohHQj2gG9CIaAn2IpkAPojHQnmgOtCY6AG2JLkBLohPQjugGtCI6Am2IrkALojNQn+gO1CYCAHWJEEBNIghQjwgD1CICAXWIUEANIhiwPhEOWJsICKxLhATWJIIC6xFhgbWIwMAy4vJqRslbH2bAMuLmYsIGG1hGnBy/jx8n6MAyYtgud+/7991yW3LYGFhIHJA50JroALQlugAtiU5AO6Ib0IroCLQhugItiM5AfaI7UJsIANQlQgA1iSBAPSIMUIsIBNQhQgE1iGDA+kQ4YG0iILAuERJYkwgKrEeEBdYiAgPrEKGBNYjgwOFEeOBQYgPAYcQmgEOIjQDLic0AS4kNAcuI4q/X+SYnCr8g6Z+U2BxQSmwQKCM2CZQQGwXmE5sF5hIbBuYRmwbmEBsHponNA1PEEQDjxFEAY8SRAPuJowH2EUcE7CaOCthFHBnwljg64DVxhMDLt/MP3svotD/8e8F7e9h7r6LXfraajZjHGGOMMcYYY4wxxhhjjDHGGGOMMcYYY4wxxhhjw/sNpRYtdwuaUZ0AAAAASUVORK5CYII="
+          className="object-contain object-left cursor-pointer hidden md:inline-flex pt-1 rounded-full"
+          width="20px"
+        />
+      </div>
+    </header>
+  );
 }
-export function buildFlameLayout(spans: SpanNode[], width: number) {
-  const rootStart = Math.min(...spans.map((s) => s.startUs));
-  const total = Math.max(...spans.map((s) => s.startUs + s.durationUs)) - rootStart;
-  return spans.map((span) => ({
-    x: ((span.startUs - rootStart) / total) * width,
-    w: Math.max(1, (span.durationUs / total) * width),
-    span,
-  }));
+export default Header;
+import React from "react";
+function Body() {
+  return (
+    <div className="md:pl-10 md:pr-10 bodybackground">
+      <div className="flex justify-center lg:justify-end pr-10">
+        <h1 className="cursor-pointer font-bold text-lg hover:underline text-white">
+          How We Work?
+        </h1>
+      </div>
+      <div className="pl-20 pt-10">
+        <div className="grid lg:grid-cols-2 pl-20 pb-5 pt-2">
+          <div className="pt-10 pl-10 lg:m-auto">
+            <h1 className="font-bold text-5xl text-white">
+              Smart Financial Decisions Made Simple
+            </h1>
+            <div className="pt-5">
+              <ul class="space-y-4 text-white">
+                <li className="flex items-center">
+                  <svg
+                    class="h-6 w-6 flex-none fill-green-400 stroke-white stroke-2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="9" />
+                    <path
+                      d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9"
+                      fill="none"
+                    />
+                  </svg>
+                  <p className="ml-3 text-sm">
+                    Helping you find the right deal
+                  </p>
+                </li>
+                <li className="flex items-center">
+                  <svg
+                    className="h-6 w-6 flex-none fill-green-400 stroke-white stroke-2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="9" />
+                    <path
+                      d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9"
+                      fill="none"
+                    />
+                  </svg>
+                  <p className="ml-3 text-sm">Boosting your market knowledge</p>
+                </li>
+                <li className="flex items-center">
+                  <svg
+                    className="h-6 w-6 flex-none fill-green-400 stroke-white stroke-2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="9" />
+                    <path
+                      d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9"
+                      fill="none"
+                    />
+                  </svg>
+                  <p className="ml-3 text-sm">Making the most of your money</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="hidden lg:inline-flex">
+            <img
+              src="https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/advisor/au/wp-content/uploads/2022/07/Advisor-Homepage-US.png"
+              width="500"
+              height="500"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
-from dataclasses import dataclass
-@dataclass
-class MigrationRisk:
-    table: str
-    severity: str
-    message: str
-def check_add_column(stmt: dict) -> list[MigrationRisk]:
-    risks = []
-    if not stmt.get("nullable", True) and "default" not in stmt:
-        risks.append(MigrationRisk(stmt["table"], "HIGH", "NOT NULL without default locks table"))
-    return risks

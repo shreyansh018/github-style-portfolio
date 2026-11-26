@@ -1,0 +1,5 @@
+# Optional: only needed for scripts/build-face.py and scripts/build-body.py
+# The portfolio site itself has zero dependencies and needs no build step.
+opencv-python-headless
+numpy
+mediapipe==0.10.14
