@@ -2,7 +2,7 @@ import { createArchive } from "./archive.js";
 import { createWatch } from "./watch.js";
 import { createBar } from "./bar.js";
 import { createWheel } from "./wheel.js";
-import { createTerminal } from "./terminal.js";
+import { createTerminal } from "./terminal.js?v=20261126f";
 import { createBlueprint } from "./blueprint.js";
 import { createTips } from "./tip.js";
 import { createLightbox } from "./lightbox.js";
@@ -35,7 +35,7 @@ const load = (url) =>
     if (!response.ok) throw new Error(`${url}: ${response.status}`);
     return response.json();
   });
-const V = "?v=20261126e";
+const V = "?v=20261126f";
 const [content, themeData, snapshot, stack, months] = await Promise.all([load(`content.json${V}`), load(`../themes.json${V}`), load(`../github-snapshot.json${V}`), load(`stack.json${V}`).catch(() => null), load(`months.json${V}`).catch(() => null)]);
 const themes = themeData.themes;
 const palettes = new Map(content.palettes.map((theme) => [key(theme.name), theme]));

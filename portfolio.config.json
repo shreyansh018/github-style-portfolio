@@ -78,7 +78,9 @@
       "desc": "AI-powered interview preparation platform with a microservices backend for auth, resume, interview, billing and roadmap services.",
       "long": "Architected a full-stack interview preparation platform with Groq-hosted LLMs via LangChain for PDF-based resume analysis, ATS-style feedback, personalized interview questions and learning roadmaps. Stateful LangGraph workflows handle conditional routing for interview generation, answer evaluation and report generation, while Firebase Google Auth, MongoDB and Redis handle identity, storage and caching.",
       "githubRepo": "shreyansh018/ShreyanshPrepAI",
-      "shots": [],
+      "shots": [
+        "shots/shreyanshprepai.png"
+      ],
       "stack": [
         "React",
         "Node.js",
@@ -99,7 +101,9 @@
       "desc": "Agentic RAG pipeline with multi-step reasoning, history-aware query planning and conversational memory.",
       "long": "Built an agentic RAG pipeline with LangGraph for multi-step reasoning, conversational routing and persistent conversation memory. Document ingestion and semantic retrieval use Qdrant Cloud and Gemini embeddings (3072 dimensions) with FlashRank reranking. NVIDIA NeMo Guardrails filter off-topic queries, jailbreaks and prompt injection, while Portkey Gateway provides centralized LLM orchestration with primary and fallback Groq configurations. Includes a FastAPI backend, Streamlit interface and RAGAS/LangSmith evaluation workflows.",
       "githubRepo": "shreyansh018/Enterprise-RAG-Application",
-      "shots": [],
+      "shots": [
+        "shots/enterprise-agentic-rag.png"
+      ],
       "stack": [
         "Python",
         "FastAPI",
@@ -120,7 +124,9 @@
       "desc": "Python application that aggregates and surfaces fresher job opportunities so candidates find relevant openings faster.",
       "long": "An automation-focused Python application that collects and surfaces entry-level job opportunities in one place, helping candidates discover relevant openings without manually searching multiple sources.",
       "githubRepo": "shreyansh018/freshersjob-radar",
-      "shots": [],
+      "shots": [
+        "shots/freshersjob-radar.png"
+      ],
       "stack": [
         "Python",
         "Automation"
@@ -154,7 +160,9 @@
       "long": "A TypeScript-based real-time communication app featuring authentication, meeting rooms and live video interactions.",
       "githubRepo": "shreyansh018/zoom_clone",
       "more": true,
-      "shots": [],
+      "shots": [
+        "shots/zoom-clone.png"
+      ],
       "stack": [
         "TypeScript",
         "React"
@@ -168,7 +176,9 @@
       "long": "A TypeScript storage management application focused on clean frontend architecture and responsive interaction patterns.",
       "githubRepo": "shreyansh018/storage-web-application",
       "more": true,
-      "shots": [],
+      "shots": [
+        "shots/storage-web-application.png"
+      ],
       "stack": [
         "TypeScript",
         "React"
@@ -182,7 +192,9 @@
       "long": "An HTML-based dashboard that presents ecommerce sales metrics and trends through interactive visualizations.",
       "githubRepo": "shreyansh018/Ecommerce-Sales-Dashboard",
       "more": true,
-      "shots": [],
+      "shots": [
+        "shots/ecommerce-sales-dashboard.png"
+      ],
       "stack": [
         "HTML",
         "CSS",
@@ -197,7 +209,9 @@
       "long": "A small health-tracking application that records glucose readings and presents them over time for easier monitoring.",
       "githubRepo": "shreyansh018/Sweety-Glucose-Tracker-App",
       "more": true,
-      "shots": [],
+      "shots": [
+        "shots/sweety-glucose-tracker.png"
+      ],
       "stack": [
         "JavaScript"
       ],
@@ -210,7 +224,9 @@
       "long": "A Python utility that reviews websites and produces automated insights and feedback for improvement.",
       "githubRepo": "shreyansh018/website_review",
       "more": true,
-      "shots": [],
+      "shots": [
+        "shots/website-review.png"
+      ],
       "stack": [
         "Python"
       ],

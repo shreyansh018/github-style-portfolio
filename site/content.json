@@ -1,6 +1,6 @@
 {
  "owner": "shreyansh018",
- "fetchedAt": "2026-11-26T16:39:38.371Z",
+ "fetchedAt": "2026-11-26T17:12:48.116Z",
  "about": {
   "repo": "shreyansh018",
   "lines": [
@@ -47,10 +47,18 @@
     "Firebase",
     "Docker"
    ],
-   "images": [],
+   "images": [
+    {
+     "file": "shots/shreyanshprepai.png",
+     "source": "shots/shreyanshprepai.png",
+     "alt": "ShreyanshPrepAI screenshot 1",
+     "xray": false
+    }
+   ],
    "lines": [
     "# ShreyanshPrepAI",
     "",
+    "\u0001IMG0\u0001",
     "",
     "### AI-powered interview preparation platform with a microservices backend for auth, resume, interview, billing and roadmap services.",
     "",
@@ -96,10 +104,18 @@
     "RAGAS",
     "Streamlit"
    ],
-   "images": [],
+   "images": [
+    {
+     "file": "shots/enterprise-agentic-rag.png",
+     "source": "shots/enterprise-agentic-rag.png",
+     "alt": "Enterprise Agentic RAG screenshot 1",
+     "xray": false
+    }
+   ],
    "lines": [
     "# Enterprise Agentic RAG",
     "",
+    "\u0001IMG0\u0001",
     "",
     "### Agentic RAG pipeline with multi-step reasoning, history-aware query planning and conversational memory.",
     "",
@@ -139,10 +155,18 @@
     "Python",
     "Automation"
    ],
-   "images": [],
+   "images": [
+    {
+     "file": "shots/freshersjob-radar.png",
+     "source": "shots/freshersjob-radar.png",
+     "alt": "FreshersJob Radar screenshot 1",
+     "xray": false
+    }
+   ],
    "lines": [
     "# FreshersJob Radar",
     "",
+    "\u0001IMG0\u0001",
     "",
     "### Python application that aggregates and surfaces fresher job opportunities so candidates find relevant openings faster.",
     "",
@@ -230,10 +254,18 @@
     "TypeScript",
     "React"
    ],
-   "images": [],
+   "images": [
+    {
+     "file": "shots/zoom-clone.png",
+     "source": "shots/zoom-clone.png",
+     "alt": "Zoom Clone screenshot 1",
+     "xray": false
+    }
+   ],
    "lines": [
     "# Zoom Clone",
     "",
+    "\u0001IMG0\u0001",
     "",
     "### Real-time video conferencing clone with authentication, meetings and live video rooms.",
     "",
@@ -267,10 +299,18 @@
     "TypeScript",
     "React"
    ],
-   "images": [],
+   "images": [
+    {
+     "file": "shots/storage-web-application.png",
+     "source": "shots/storage-web-application.png",
+     "alt": "Storage Web Application screenshot 1",
+     "xray": false
+    }
+   ],
    "lines": [
     "# Storage Web Application",
     "",
+    "\u0001IMG0\u0001",
     "",
     "### Storage management web application with a modern frontend and cloud-ready architecture.",
     "",
@@ -305,10 +345,18 @@
     "CSS",
     "JavaScript"
    ],
-   "images": [],
+   "images": [
+    {
+     "file": "shots/ecommerce-sales-dashboard.png",
+     "source": "shots/ecommerce-sales-dashboard.png",
+     "alt": "Ecommerce Sales Dashboard screenshot 1",
+     "xray": false
+    }
+   ],
    "lines": [
     "# Ecommerce Sales Dashboard",
     "",
+    "\u0001IMG0\u0001",
     "",
     "### Interactive dashboard for visualizing ecommerce sales metrics and trends.",
     "",
@@ -341,10 +389,18 @@
    "stack": [
     "JavaScript"
    ],
-   "images": [],
+   "images": [
+    {
+     "file": "shots/sweety-glucose-tracker.png",
+     "source": "shots/sweety-glucose-tracker.png",
+     "alt": "Sweety Glucose Tracker screenshot 1",
+     "xray": false
+    }
+   ],
    "lines": [
     "# Sweety Glucose Tracker",
     "",
+    "\u0001IMG0\u0001",
     "",
     "### JavaScript application for tracking glucose levels and monitoring health metrics over time.",
     "",
@@ -377,10 +433,18 @@
    "stack": [
     "Python"
    ],
-   "images": [],
+   "images": [
+    {
+     "file": "shots/website-review.png",
+     "source": "shots/website-review.png",
+     "alt": "Website Review screenshot 1",
+     "xray": false
+    }
+   ],
    "lines": [
     "# Website Review",
     "",
+    "\u0001IMG0\u0001",
     "",
     "### Python tool for reviewing and analyzing websites with automated insights and feedback.",
     "",

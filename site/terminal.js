@@ -71,6 +71,7 @@ function glyph(icon, letter) {
 
 function fill(parent, segments) {
   for (const segment of segments) {
+    if (segment == null) continue;
     if (typeof segment === "string") {
       parent.append(segment);
       continue;
