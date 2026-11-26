@@ -209,6 +209,7 @@ const projects = CONFIG.projects.map((p) => {
   ];
   return {
     repo: id,
+    name: p.name,
     url: p.url || null,
     description: p.desc,
     tag: p.tag || null,

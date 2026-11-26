@@ -1,6 +1,6 @@
 {
  "owner": "shreyansh018",
- "fetchedAt": "2026-11-26T17:30:02.357Z",
+ "fetchedAt": "2026-11-26T17:33:35.411Z",
  "about": {
   "repo": "shreyansh018",
   "lines": [
@@ -19,6 +19,7 @@
  "projects": [
   {
    "repo": "shreyanshprepai",
+   "name": "ShreyanshPrepAI",
    "url": "https://github.com/shreyansh018/ShreyanshPrepAI",
    "description": "AI-powered interview preparation platform with a microservices backend for auth, resume, interview, billing and roadmap services.",
    "tag": "Full-stack · AI",
@@ -76,6 +77,7 @@
   },
   {
    "repo": "enterprise-agentic-rag",
+   "name": "Enterprise Agentic RAG",
    "url": "https://github.com/shreyansh018/Enterprise-RAG-Application",
    "description": "Agentic RAG pipeline with multi-step reasoning, history-aware query planning and conversational memory.",
    "tag": "AI · Enterprise Search",
@@ -135,6 +137,7 @@
   },
   {
    "repo": "freshersjob-radar",
+   "name": "FreshersJob Radar",
    "url": "https://github.com/shreyansh018/freshersjob-radar",
    "description": "Python application that aggregates and surfaces fresher job opportunities so candidates find relevant openings faster.",
    "tag": "Python · Career Tech",
@@ -181,6 +184,7 @@
   },
   {
    "repo": "my-portfolio",
+   "name": "My Portfolio",
    "url": "https://github.com/shreyansh018/my-portfolio",
    "description": "Cinematic portfolio with a WebGL project constellation, scroll-directed storytelling and a keyboard-accessible contact flow.",
    "tag": "Creative Web · TypeScript",
@@ -234,6 +238,7 @@
   },
   {
    "repo": "zoom-clone",
+   "name": "Zoom Clone",
    "url": "https://github.com/shreyansh018/zoom_clone",
    "description": "Real-time video conferencing clone with authentication, meetings and live video rooms.",
    "tag": "Full-stack · Real-time",
@@ -279,6 +284,7 @@
   },
   {
    "repo": "storage-web-application",
+   "name": "Storage Web Application",
    "url": "https://github.com/shreyansh018/storage-web-application",
    "description": "Storage management web application with a modern frontend and cloud-ready architecture.",
    "tag": "Web App · TypeScript",
@@ -324,6 +330,7 @@
   },
   {
    "repo": "ecommerce-sales-dashboard",
+   "name": "Ecommerce Sales Dashboard",
    "url": "https://github.com/shreyansh018/Ecommerce-Sales-Dashboard",
    "description": "Interactive dashboard for visualizing ecommerce sales metrics and trends.",
    "tag": "Data Visualization",
@@ -370,6 +377,7 @@
   },
   {
    "repo": "sweety-glucose-tracker",
+   "name": "Sweety Glucose Tracker",
    "url": "https://github.com/shreyansh018/Sweety-Glucose-Tracker-App",
    "description": "JavaScript application for tracking glucose levels and monitoring health metrics over time.",
    "tag": "JavaScript · Health Tech",
@@ -414,6 +422,7 @@
   },
   {
    "repo": "website-review",
+   "name": "Website Review",
    "url": "https://github.com/shreyansh018/website_review",
    "description": "Python tool for reviewing and analyzing websites with automated insights and feedback.",
    "tag": "Python · Web Analysis",

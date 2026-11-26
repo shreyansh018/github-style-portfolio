@@ -2,7 +2,7 @@ import { createArchive } from "./archive.js";
 import { createWatch } from "./watch.js";
 import { createBar } from "./bar.js";
 import { createWheel } from "./wheel.js";
-import { createTerminal } from "./terminal.js?v=20261126h";
+import { createTerminal } from "./terminal.js?v=20261126i";
 import { createBlueprint } from "./blueprint.js";
 import { createTips } from "./tip.js";
 import { createLightbox } from "./lightbox.js";
@@ -35,7 +35,7 @@ const load = (url) =>
     if (!response.ok) throw new Error(`${url}: ${response.status}`);
     return response.json();
   });
-const V = "?v=20261126h";
+const V = "?v=20261126i";
 const [content, themeData, snapshot, stack, months] = await Promise.all([load(`content.json${V}`), load(`../themes.json${V}`), load(`../github-snapshot.json${V}`), load(`stack.json${V}`).catch(() => null), load(`months.json${V}`).catch(() => null)]);
 const themes = themeData.themes;
 const palettes = new Map(content.palettes.map((theme) => [key(theme.name), theme]));
@@ -140,7 +140,7 @@ const about = (() => {
 
 const MORE = new Set(content.more || []);
 const OMARCHY = new Set();
-const projectEntries = content.projects.map((project) => ({ id: project.repo, label: project.repo, kind: "project", data: project, parent: MORE.has(project.repo) ? "more" : OMARCHY.has(project.repo) ? "omarchy" : null }));
+const projectEntries = content.projects.map((project) => ({ id: project.repo, label: project.name || project.repo, kind: "project", data: project, parent: MORE.has(project.repo) ? "more" : OMARCHY.has(project.repo) ? "omarchy" : null }));
 const children = projectEntries.filter((entry) => entry.parent);
 const childrenOf = (id) => children.filter((entry) => entry.parent === id);
 const shipped = themes.filter((theme) => theme.included);
@@ -302,7 +302,7 @@ function room(used) {
 function projectSpec(project) {
   const { share, note } = starShare(project.stars || 0);
   const out = [
-    { segments: [[project.repo, "md-h md-h1"]] },
+    { segments: [[project.name || project.repo, "md-h md-h1"]] },
     ...(project.description ? [{ segments: [project.description], className: "t-dim" }] : []),
     { segments: [" "] },
     fact("stars", project.stars, ["  ", ...gauge(share / 100, 17 + note.length), ...(note ? [[note, "t-dim"]] : [])]),
