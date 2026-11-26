@@ -1,6 +1,6 @@
 {
  "owner": "shreyansh018",
- "fetchedAt": "2026-11-26T17:18:38.382Z",
+ "fetchedAt": "2026-11-26T17:30:02.357Z",
  "about": {
   "repo": "shreyansh018",
   "lines": [
@@ -49,21 +49,9 @@
    ],
    "images": [
     {
-     "file": "shots/shreyanshprepai-1.png",
-     "source": "shots/shreyanshprepai-1.png",
+     "file": "shots/shreyanshprepai.png",
+     "source": "shots/shreyanshprepai.png",
      "alt": "ShreyanshPrepAI screenshot 1",
-     "xray": false
-    },
-    {
-     "file": "shots/shreyanshprepai-2.png",
-     "source": "shots/shreyanshprepai-2.png",
-     "alt": "ShreyanshPrepAI screenshot 2",
-     "xray": false
-    },
-    {
-     "file": "shots/shreyanshprepai-3.png",
-     "source": "shots/shreyanshprepai-3.png",
-     "alt": "ShreyanshPrepAI screenshot 3",
      "xray": false
     }
    ],
@@ -82,10 +70,6 @@
     "Redis handle identity, storage and caching.",
     "",
     "Built with React · Node.js · Express.js · MongoDB · Redis · LangChain · LangGraph · Groq API · Firebase · Docker",
-    "",
-    "\u0001IMG1\u0001",
-    "",
-    "\u0001IMG2\u0001",
     "",
     "[Visit](https://github.com/shreyansh018/ShreyanshPrepAI)"
    ]
@@ -196,7 +180,7 @@
    ]
   },
   {
-   "repo": "interactive-3d-portfolio",
+   "repo": "my-portfolio",
    "url": "https://github.com/shreyansh018/my-portfolio",
    "description": "Cinematic portfolio with a WebGL project constellation, scroll-directed storytelling and a keyboard-accessible contact flow.",
    "tag": "Creative Web · TypeScript",
@@ -224,14 +208,14 @@
    ],
    "images": [
     {
-     "file": "shots/3d-portfolio.png",
-     "source": "shots/3d-portfolio.png",
-     "alt": "Interactive 3D Portfolio screenshot 1",
+     "file": "shots/my-portfolio.png",
+     "source": "shots/my-portfolio.png",
+     "alt": "My Portfolio screenshot 1",
      "xray": false
     }
    ],
    "lines": [
-    "# Interactive 3D Portfolio",
+    "# My Portfolio",
     "",
     "\u0001IMG0\u0001",
     "",

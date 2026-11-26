@@ -79,9 +79,7 @@
       "long": "Architected a full-stack interview preparation platform with Groq-hosted LLMs via LangChain for PDF-based resume analysis, ATS-style feedback, personalized interview questions and learning roadmaps. Stateful LangGraph workflows handle conditional routing for interview generation, answer evaluation and report generation, while Firebase Google Auth, MongoDB and Redis handle identity, storage and caching.",
       "githubRepo": "shreyansh018/ShreyanshPrepAI",
       "shots": [
-        "shots/shreyanshprepai-1.png",
-        "shots/shreyanshprepai-2.png",
-        "shots/shreyanshprepai-3.png"
+        "shots/shreyanshprepai.png"
       ],
       "stack": [
         "React",
@@ -136,13 +134,13 @@
       "url": "https://github.com/shreyansh018/freshersjob-radar"
     },
     {
-      "name": "Interactive 3D Portfolio",
+      "name": "My Portfolio",
       "tag": "Creative Web · TypeScript",
       "desc": "Cinematic portfolio with a WebGL project constellation, scroll-directed storytelling and a keyboard-accessible contact flow.",
       "long": "A cinematic, interactive portfolio built with Three.js, GSAP, TypeScript and Vite. Custom GLSL shaders, particles and section-aware lighting create the atmosphere, while scroll-driven transitions connect the DOM, camera and shaders. Includes responsive rendering, reduced-motion support, structured data and a contact flow.",
       "githubRepo": "shreyansh018/my-portfolio",
       "shots": [
-        "shots/3d-portfolio.png"
+        "shots/my-portfolio.png"
       ],
       "stack": [
         "TypeScript",
