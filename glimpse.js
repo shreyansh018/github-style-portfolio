@@ -1,4 +1,4 @@
-import { prefersStill, onWidthResize, rng } from "/intros/shared/common.js";
+import { prefersStill, onWidthResize, rng } from "./intros/shared/common.js";
 
 const FONT_PX = 12;
 const CELL_W = 7.2;
@@ -4193,7 +4193,7 @@ function markSeen() {
     timer = setTimeout(() => {
       if (document.hidden) return;
       document.removeEventListener("visibilitychange", arm);
-      navigator.sendBeacon?.("/api/seen");
+      navigator.sendBeacon?.("./api/seen");
     }, 1000);
   };
   document.addEventListener("visibilitychange", arm);
@@ -4243,6 +4243,9 @@ navigator.keyboard
     if (wall) layoutKeyboard();
   })
   .catch(() => {});
-loadFace().then((loaded) => {
+// Optional intro layer: enable only after generating face.webm + face-track.json
+// with scripts/build-face.py or scripts/build-body.py.
+const HAS_FACE_LAYER = false;
+(HAS_FACE_LAYER ? loadFace() : Promise.resolve(null)).then((loaded) => {
   face = loaded;
 });

@@ -6,7 +6,7 @@
    "slug": "blackmoney",
    "name": "Blackmoney",
    "description": "Warm paper on near-black",
-   "image": "/site/assets/themes/blackmoney.svg",
+   "image": "../site/assets/themes/blackmoney.svg",
    "palette": [
     "#0b0b0a",
     "#7fd1a0",
@@ -25,7 +25,7 @@
    "slug": "paper",
    "name": "Paper",
    "description": "Light, ink on cream",
-   "image": "/site/assets/themes/paper.svg",
+   "image": "../site/assets/themes/paper.svg",
    "palette": [
     "#f6f2e9",
     "#2f6f4f",
@@ -44,7 +44,7 @@
    "slug": "sora",
    "name": "Sora",
    "description": "Cool steel and teal",
-   "image": "/site/assets/themes/sora.svg",
+   "image": "../site/assets/themes/sora.svg",
    "palette": [
     "#0b1015",
     "#4cc9f0",
@@ -63,7 +63,7 @@
    "slug": "circuit",
    "name": "Circuit",
    "description": "Board green, phosphor on black",
-   "image": "/site/assets/themes/circuit.svg",
+   "image": "../site/assets/themes/circuit.svg",
    "palette": [
     "#07110c",
     "#3ddc84",
@@ -82,7 +82,7 @@
    "slug": "amber",
    "name": "Amber",
    "description": "Warm amber on ink",
-   "image": "/site/assets/themes/amber.svg",
+   "image": "../site/assets/themes/amber.svg",
    "palette": [
     "#0e0c08",
     "#f7931a",
@@ -101,7 +101,7 @@
    "slug": "indigo",
    "name": "Indigo",
    "description": "Violet on deep indigo",
-   "image": "/site/assets/themes/indigo.svg",
+   "image": "../site/assets/themes/indigo.svg",
    "palette": [
     "#0d0b14",
     "#a97bff",
@@ -120,7 +120,7 @@
    "slug": "crimson",
    "name": "Crimson",
    "description": "Warm terracotta and charcoal",
-   "image": "/site/assets/themes/crimson.svg",
+   "image": "../site/assets/themes/crimson.svg",
    "palette": [
     "#140a0a",
     "#ff8f1f",
@@ -139,7 +139,7 @@
    "slug": "slate",
    "name": "Slate",
    "description": "Neutral graphite",
-   "image": "/site/assets/themes/slate.svg",
+   "image": "../site/assets/themes/slate.svg",
    "palette": [
     "#111214",
     "#9ab0c4",
